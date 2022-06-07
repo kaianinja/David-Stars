@@ -1,6 +1,6 @@
-import turtle #importer turtle pour pouvoir l'utiliser
-from random import random, randrange, getrandbits, randint #importer random pour pouvoir laisser le choix à l'ordinateur. Le choix sera aléatoire.
-from turtle import Screen, Turtle  #pour pouvoir utiliser screen turtle, demander des questions à l'utilisateur
+import turtle
+from random import random, randrange, getrandbits, randint
+from turtle import Screen, Turtle
 
 window = Screen()
 
