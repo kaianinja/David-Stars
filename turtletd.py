@@ -6,29 +6,55 @@ window = Screen()
 
 colorb = None
 
-while colorb is None:
-    colorb = window.textinput("Choose a background color between black, red or yellow", "Color:")
+while True:
+    colorb = window.textinput("Choose a background color between pink,white and teal", "pink,white or teal:")
+    if colorb=="pink" or colorb=="teal" or colorb=="white":
+        break
+    else:
+        continue
 window.bgcolor(colorb)
 
 color = None
-while color is None:
-    color=window.textinput("quelle couleur voulez vous que les bords soit?","couleur:")
-    turtle.pencolor(color)
+while True :
+    color=window.textinput("Choose a color between red,black and blue for the border color.","red,blue or black:")
+    if color=="red" or color=="blue" or color=="black":
+        break
+    else:
+        continue
+turtle.pencolor(color)
 
-z=window.textinput("nommez votre fichier(vous ne pouvez qu'utiliser des lettres",'name:')
-window.title(z)
+z=window.textinput("Name your file(you can only use letters)",'name:')
 
-turtle.setup(width=1, height=1)#agrandit le screen
-turtle.screensize(10000,10000)#pour que l'utilisateur puisse scrooll
+if z.isalpha():
+    window.title(z)
+else:
+    while(not z.isalpha()):
+        z=window.textinput("Name your file with letters only.",'name:')
+    window.title(z)
+
+turtle.setup(width=1, height=1)#makes Screen bigger
+turtle.screensize(10000,10000)#to let user scroll to find the stars
 
 import turtle
 from random import random
 
-x=int(window.textinput("choisissez les coordonnées où commencer.","x:"))
-y=int(window.textinput("choisissez les coordonnées où commencer.","y:"))
-s=window.textinput("choisissez l'épaisseur de l'étoilee","epaisseur")
-nb=int(window.textinput("combien d'étoile","nb:"))
+
+x=y=nb=s=0
+
+while x==0 and y==0 and nb==0 and s==0:
+    try:
+        x=int(window.textinput("Please choose an x coordinate.","x:"))
+        y=int(window.textinput("please choose a y coordinate.","y:"))
+        s=int(window.textinput("choisissez l'épaisseur de l'étoilee","epaisseur"))
+        nb=int(window.textinput("combien d'étoile","nb:"))
+    
+    except:
+        x=y=s=nb=0
+
+    
 p=0
+
+
 
 turtle.hideturtle()
 turtle.pensize(s)
